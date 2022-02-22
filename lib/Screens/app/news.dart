@@ -16,7 +16,7 @@ class _NewspageState extends State<Newspage> {
   // ignore: non_constant_identifier_names
   Future<String> _GatNewsAPI() async {
     var respones = await Http.get(Uri.parse(
-        'https://newsapi.org/v2/top-headlines?country=th&category=business&apiKey=0a6ff783da954900ad0cf134e838696f'));
+        'https://numvarn.github.io/resume/asset/files/templeprofile.json'));
 
     jsonData = json.decode(utf8.decode(respones.bodyBytes));
     for (var data in jsonData['articles']) {
@@ -27,7 +27,7 @@ class _NewspageState extends State<Newspage> {
       }
 
       THNewsData news =
-          THNewsData(data['title'], data['description'], data['urlToImage']);
+          THNewsData(data['ชื่อ'], data['พระเกจิ'], data['รายระเอียด'], data['ละติจุด'], data['ลองติจุด']]);
       dataList.add(news);
     }
 
@@ -38,7 +38,7 @@ class _NewspageState extends State<Newspage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Thailand News"),
+        title: Text("Temples in Sisaket"),
       ),
       body: Background(
         child: FutureBuilder(
